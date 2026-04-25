@@ -547,4 +547,4 @@ else:
     page_future_vs_assumed()
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Built with Streamlit • Data: Visakhapatnam 2020-2025 • For Vijay with love 💚")
+st.sidebar.caption("Built with Streamlit • Data: Visakhapatnam 2020-2025 ")
