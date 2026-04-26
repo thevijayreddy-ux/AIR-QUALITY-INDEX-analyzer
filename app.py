@@ -1,5 +1,5 @@
 # ============================================================
-# VISAKHAPATNAM AQI PLATFORM – FINAL ERROR‑FREE VERSION
+# VISAKHAPATNAM AQI PLATFORM – FINAL PERFECTED VERSION
 # For Vijay – with love and zero bugs
 # ============================================================
 
@@ -25,6 +25,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# CSS with dark mode text fix INSIDE the <style> tag
 st.markdown("""
 <style>
     @keyframes moveClouds {
@@ -73,17 +74,17 @@ st.markdown("""
         margin-bottom: 2rem;
         border: 1px solid rgba(100,150,200,0.3);
     }
+    /* FORCE DARK TEXT ON LIGHT BACKGROUNDS – fixes dark mode issues */
+    .metric-card, .big-aqi, .stAlert, .stInfo, .stSuccess, .stWarning, .stError {
+        color: #0a4b6e !important;
+    }
+    .metric-card p, .metric-card h4, .big-aqi p, .big-aqi h3 {
+        color: #0a4b6e !important;
+    }
+    .stMarkdown, .stMarkdown p, .stMarkdown div {
+        color: #0a4b6e !important;
+    }
 </style>
-/* Force dark text on light backgrounds */
-.metric-card, .big-aqi, .stAlert, .stInfo, .stSuccess, .stWarning, .stError {
-    color: #0a4b6e !important;
-}
-.metric-card p, .metric-card h4, .big-aqi p, .big-aqi h3 {
-    color: #0a4b6e !important;
-}
-.stMarkdown, .stMarkdown p, .stMarkdown div {
-    color: #0a4b6e !important;
-}
 """, unsafe_allow_html=True)
 
 # ------------------------------
