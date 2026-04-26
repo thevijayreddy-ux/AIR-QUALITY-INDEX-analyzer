@@ -1,6 +1,6 @@
 # ============================================================
-# VISAKHAPATNAM AQI PLATFORM – FINAL PERFECTED VERSION
-# For Vijay – with love and zero bugs
+# VISAKHAPATNAM AQI PLATFORM – FINAL VERSION
+# Headings in warm orange/gold for perfect readability
 # ============================================================
 
 import streamlit as st
@@ -25,7 +25,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS with dark mode text fix INSIDE the <style> tag
 st.markdown("""
 <style>
     @keyframes moveClouds {
@@ -48,7 +47,12 @@ st.markdown("""
         box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         border: 1px solid rgba(255,255,255,0.5);
     }
-    h1, h2, h3 { color: #0a4b6e !important; font-weight: 700; text-shadow: 1px 1px 1px rgba(255,255,255,0.5); }
+    /* HEADINGS – warm orange/gold for light & dark mode */
+    h1, h2, h3 {
+        color: #e67e22 !important;
+        font-weight: 700;
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
     .stButton > button {
         background: linear-gradient(135deg, #0a4b6e, #1a6e96);
         color: white;
@@ -74,7 +78,7 @@ st.markdown("""
         margin-bottom: 2rem;
         border: 1px solid rgba(100,150,200,0.3);
     }
-    /* FORCE DARK TEXT ON LIGHT BACKGROUNDS – fixes dark mode issues */
+    /* Force dark text on light backgrounds – fixes dark mode issues */
     .metric-card, .big-aqi, .stAlert, .stInfo, .stSuccess, .stWarning, .stError {
         color: #0a4b6e !important;
     }
@@ -558,4 +562,4 @@ else:
     page_future_vs_assumed()
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Built with Streamlit • Data: Visakhapatnam 2020-2025 ")
+st.sidebar.caption("Built with Streamlit • Data: Visakhapatnam 2020-2025 • For Vijay with love 💚")
