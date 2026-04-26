@@ -74,6 +74,16 @@ st.markdown("""
         border: 1px solid rgba(100,150,200,0.3);
     }
 </style>
+/* Force dark text on light backgrounds */
+.metric-card, .big-aqi, .stAlert, .stInfo, .stSuccess, .stWarning, .stError {
+    color: #0a4b6e !important;
+}
+.metric-card p, .metric-card h4, .big-aqi p, .big-aqi h3 {
+    color: #0a4b6e !important;
+}
+.stMarkdown, .stMarkdown p, .stMarkdown div {
+    color: #0a4b6e !important;
+}
 """, unsafe_allow_html=True)
 
 # ------------------------------
