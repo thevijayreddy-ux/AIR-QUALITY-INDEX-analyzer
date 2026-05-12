@@ -1,8 +1,3 @@
-# ============================================================
-# VISAKHAPATNAM AQI PLATFORM – FINAL VERSION
-# Headings in warm orange/gold for perfect readability
-# ============================================================
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -15,9 +10,6 @@ from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
-# ------------------------------
-# PAGE CONFIGURATION – ANIMATED AIR THEME
-# ------------------------------
 st.set_page_config(
     page_title="Vizag AQI Platform | Vijay's Dashboard",
     layout="wide",
@@ -91,9 +83,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------------------
-# DATA LOADING – CORRECT FILE NAME (WITH SPACE BEFORE .csv)
-# ------------------------------
 @st.cache_data
 def load_data():
     # EXACT filename as on GitHub: space before .csv
@@ -118,9 +107,7 @@ except Exception as e:
     st.error(f"❌ Error: {e}\nMake sure 'Visakhapatnam_Clean_AQI_Data .csv' is in the same folder.")
     st.stop()
 
-# ------------------------------
-# FUTURE PREDICTION FUNCTION
-# ------------------------------
+
 def get_future_prediction(target_date, df_hist):
     target = pd.to_datetime(target_date)
     month = target.month
@@ -146,9 +133,7 @@ def get_future_prediction(target_date, df_hist):
     pred['aqi'] = max(0, base_aqi + aqi_slope * trend_factor)
     return pred
 
-# ------------------------------
-# HELPER: HEALTH IMPACT PIE CHART
-# ------------------------------
+
 def health_impact_pie():
     categories = {
         'Good (0-50)': 'Minimal impact',
@@ -170,9 +155,7 @@ def health_impact_pie():
     fig.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#0a4b6e')
     return fig
 
-# ------------------------------
-# PAGE 1: PAST ANALYSIS
-# ------------------------------
+
 def page_historical():
     st.title("🌿 Visakhapatnam Air Quality – Past Analysis (2020‑2025)")
     
@@ -296,9 +279,7 @@ def page_historical():
     fig_box.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#0a4b6e', showlegend=False)
     st.plotly_chart(fig_box, use_container_width=True)
 
-# ------------------------------
-# PAGE 2: FUTURE ANALYSIS (without Search plugin to avoid error)
-# ------------------------------
+
 def page_future():
     st.title("🔮 Future AQI Predictions (2026‑2030)")
     
@@ -475,9 +456,7 @@ def page_future():
     else:
         st.error("🔥 Hazardous – Stay indoors, use air purifiers, avoid all outdoor activity.")
 
-# ------------------------------
-# PAGE 3: FUTURE PREDICTOR vs REAL ASSUMED
-# ------------------------------
+
 def page_future_vs_assumed():
     st.title("📡 Future Predictor vs Real Assumed Data")
     st.markdown("Compare model prediction with a simulated 'real' value (historical pattern / manual / random).")
@@ -544,9 +523,6 @@ def page_future_vs_assumed():
         fig2.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#0a4b6e')
         st.plotly_chart(fig2, use_container_width=True)
 
-# ------------------------------
-# SIDEBAR NAVIGATION
-# ------------------------------
 st.sidebar.title("🌬️ Navigation")
 page = st.sidebar.radio("Go to", [
     "📊 Past Analysis (2020-25)",
